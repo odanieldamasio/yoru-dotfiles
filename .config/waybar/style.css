@@ -1,7 +1,7 @@
 * {
     /* Fontes unificadas para evitar conflitos */
     font-family: "JetBrainsMono Nerd Font", "Noto Sans Nerd Font", "FontAwesome", sans-serif;
-    font-size: 15px;
+    font-size: .975rem;
     font-weight: bold;
     transition: background-color .3s ease-out;
 }
@@ -33,18 +33,10 @@ window#waybar {
 }
 
 /* --- ESTILO ESPECÍFICO DO TRAY (Melhorado) --- */
-#tray {
-    background-color: #262626;
-    /* Cinza escuro quase preto */
-    border: 1px solid #333333;
-    /* Borda sutil */
-    border-radius: 20px;
-    /* Borda bem redonda (Pílula) */
+/* #tray {
     padding: 0 15px;
-    /* Espaço nas laterais */
     margin: 5px 5px;
-    /* Espaço externo */
-}
+} */
 
 /* Ícones individuais */
 #tray>.passive {
@@ -58,7 +50,6 @@ window#waybar {
     /* Vermelho se alguém te chamar */
     color: #1e1e2e;
     border-radius: 10px;
-    padding: 0 5px;
 }
 
 /* --- MÓDULOS GERAIS (Sem o Tray na lista) --- */
@@ -78,6 +69,8 @@ window#waybar {
 #scratchpad,
 #power-profiles-daemon,
 #language,
+#custom-notification,
+#tray,
 #mpd {
     padding: 0 10px;
     border-radius: 8px;
@@ -96,6 +89,7 @@ window#waybar {
 #pulseaudio:hover,
 #wireplumber:hover,
 #custom-media:hover,
+#custom-notification:hover,
 #mode:hover,
 #idle_inhibitor:hover,
 #scratchpad:hover,
@@ -162,6 +156,45 @@ window#waybar {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+/* --- ESTILO ESPECÍFICO DO CUSTOM NOTIFICATION (Tema Noir) --- */
+#custom-notification {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px; /* Espaço para não colar na borda da tela */
+    color: #d4d4d4;     /* Cor padrão (Foreground da sua paleta) */
+    transition: all 0.3s ease;
+}
+
+/* Estado: Não Perturbe (DND) ativado */
+#custom-notification.inhibited {
+    color: #666666; /* Seu 'Bright Black' refinado - Fica bem discreto */
+}
+
+/* Estado: Novas Notificações (Piscando) */
+#custom-notification.notification {
+    color: #ffffff; /* Branco Puro */
+    
+    /* Glow branco suave para chamar atenção sem usar cores */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 
+                 0 0 10px rgba(255, 255, 255, 0.3);
+                 
+    animation-name: blink-notification;
+    animation-duration: 2s; /* Piscar mais lento e elegante */
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Animação suave de "respiração" em vez de piscar seco */
+@keyframes blink-notification {
+    0% {
+        opacity: 0.7;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
 }
 
 @keyframes blink {
