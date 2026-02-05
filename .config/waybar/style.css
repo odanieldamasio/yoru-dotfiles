@@ -1,0 +1,172 @@
+* {
+    /* Fontes unificadas para evitar conflitos */
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Nerd Font", "FontAwesome", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color .3s ease-out;
+}
+
+window#waybar {
+    background: rgba(17, 17, 17, 0.35);
+    color: #e1e1e1;
+    transition: background-color .5s;
+}
+
+/* --- ILHAS DOS MÓDULOS --- */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: rgba(0, 0, 8, .7);
+    margin: 5px 10px;
+    padding: 0 5px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Borda muito sutil para definição */
+}
+
+.modules-left {
+    padding: 0;
+}
+
+.modules-center {
+    padding: 0 10px;
+}
+
+/* --- ESTILO ESPECÍFICO DO TRAY (Melhorado) --- */
+#tray {
+    background-color: #262626;
+    /* Cinza escuro quase preto */
+    border: 1px solid #333333;
+    /* Borda sutil */
+    border-radius: 20px;
+    /* Borda bem redonda (Pílula) */
+    padding: 0 15px;
+    /* Espaço nas laterais */
+    margin: 5px 5px;
+    /* Espaço externo */
+}
+
+/* Ícones individuais */
+#tray>.passive {
+    -gtk-icon-effect: dim;
+    /* Ícones inativos ficam meio transparentes */
+}
+
+#tray>.needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f38ba8;
+    /* Vermelho se alguém te chamar */
+    color: #1e1e2e;
+    border-radius: 10px;
+    padding: 0 5px;
+}
+
+/* --- MÓDULOS GERAIS (Sem o Tray na lista) --- */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#language,
+#mpd {
+    padding: 0 10px;
+    border-radius: 8px;
+    color: #e1e1e1;
+}
+
+/* Hover nos módulos gerais */
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#custom-media:hover,
+#mode:hover,
+#idle_inhibitor:hover,
+#scratchpad:hover,
+#power-profiles-daemon:hover,
+#language:hover,
+#mpd:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+/* --- WORKSPACES --- */
+#workspaces button {
+    background: transparent;
+    font-weight: 900;
+    font-size: 13pt;
+    color: #808080;
+    /* Cinza para inativo */
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+#workspaces button.active {
+    background: #333333;
+    /* Fundo cinza escuro para ativo */
+    color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#workspaces button:hover {
+    background: #11111b;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+/* --- ÍCONE ARCH --- */
+#custom-arch {
+    margin-left: 5px;
+    padding: 0 10px;
+    font-size: 20px;
+    /* Reduzi um pouco para alinhar melhor */
+    color: #e1e1e1;
+    transition: color .5s;
+}
+
+#custom-arch:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #1793d1;
+}
+
+/* --- ESTADOS DA BATERIA --- */
+#battery.charging,
+#battery.plugged {
+    color: #a6e3a1;
+    /* Verde */
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
