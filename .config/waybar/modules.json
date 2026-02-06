@@ -46,7 +46,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [" ", " ", " "]
         },
         "on-click": "pavucontrol"
     },
@@ -61,19 +61,19 @@
     },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": "  {usage}%",
         "tooltip": true
     },
 
     "memory": {
-        "format": " {}%",
+        "format": "  {}%",
         "tooltip": true
     },
 
     "temperature": {
         "interval": 10,
         "critical-threshold": 80,
-        "format-critical": " {temperatureC}°C",
+        "format-critical": "{temperatureC}°C",
         "format": " {temperatureC}°C"
     },
 
@@ -144,6 +144,8 @@
 
     "clock": {
         "format": "{:%H:%M |%e %B}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+        "locale": "pt_BR.UTF-8",
+        "timezone": "America/Sao_Paulo"
     }
 }

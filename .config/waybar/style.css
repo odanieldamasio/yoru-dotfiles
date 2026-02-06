@@ -1,7 +1,10 @@
 /* ==============================================================================
- * WAYBAR CONFIGURATION - THEME: REFINED NOIR
+ * WAYBAR CONFIGURATION - THEME: YORU REFINED NOIR (MODULARIZED)
  * Font: JetBrainsMono Nerd Font
  * ============================================================================== */
+
+/* IMPORTANTE: Importando as cores do arquivo separado */
+@import "colors.css";
 
 /* -----------------------------------------------------
  * 1. GLOBAL & WINDOW
@@ -14,8 +17,8 @@
 }
 
 window#waybar {
-    background: rgba(17, 17, 17, 0.35);
-    color: #e1e1e1;
+    background: @bg-window;
+    color: @text-main;
     transition: background-color .5s;
 }
 
@@ -25,14 +28,11 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    background: rgba(0, 0, 8, .7);
-    /* 5px 10px 6px 10px -> 0.313rem 0.625rem 0.375rem 0.625rem */
+    /* background: @bg-modules; */
     margin: 0.313rem 0.625rem 0.375rem 0.625rem;
-    /* 0 5px -> 0 0.313rem */
     padding: 0 0.313rem;
-    /* 8px -> 0.5rem */
     border-radius: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* border: 1px solid @border-color; */
 }
 
 .modules-left {
@@ -46,7 +46,6 @@ window#waybar {
 /* -----------------------------------------------------
  * 3. GENERIC MODULE STYLES
  * ----------------------------------------------------- */
-/* Estilos compartilhados para a maioria dos módulos */
 #clock,
 #battery,
 #cpu,
@@ -64,11 +63,15 @@ window#waybar {
 #power-profiles-daemon,
 #language,
 #custom-notification,
+#custom-arch,
 #tray,
+#window,
 #mpd {
     padding: 0 0.625rem;
     border-radius: 0.5rem;
-    color: #e1e1e1;
+    color: @text-main;
+    background: @bg-modules;
+    border: 1px solid @border-color;
 }
 
 /* Efeito Hover compartilhado */
@@ -90,8 +93,8 @@ window#waybar {
 #power-profiles-daemon:hover,
 #language:hover,
 #mpd:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background: @bg-hover;
+    color: @text-black ;
 }
 
 /* -----------------------------------------------------
@@ -100,41 +103,48 @@ window#waybar {
 
 /* --- ARCH ICON --- */
 #custom-arch {
-    margin-left: 0.313rem;
+    /* margin-left: 0.313rem; */
     padding: 0 0.625rem;
+    padding-right: 1rem;
     font-size: 1.25rem;
-    color: #e1e1e1;
+    color: @text-main;
     transition: color .5s;
 }
 
 #custom-arch:hover {
-    color: #ffffff;
-    text-shadow: 0 0 0.313rem #1793d1;
+    color: @text-white;
+    text-shadow: 0 0 0.313rem @arch-blue;
 }
 
 /* --- WORKSPACES (Standard Style) --- */
+#workspaces {
+    background: @bg-modules;
+    border-radius: 0.5rem;
+}
+
 #workspaces button {
     background: transparent;
     font-weight: 900;
     font-size: 13pt;
-    /* aprox 1.08rem */
-    color: #808080;
+    color: @text-muted;
     border: none;
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem; */
     transition: all 0.3s;
 }
 
 #workspaces button.active {
-    background: #333333;
-    color: #ffffff;
+    background: @bg-active;
+    color: @text-white;
     padding-left: 0.625rem;
     padding-right: 0.625rem;
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #ffffff;
-    box-shadow: none;
+    /* background: @bg-darker;
+    color: @text-white;
+    box-shadow: none; */
+    background: @bg-active;
+    color: @text-white;
 }
 
 /* --- TRAY --- */
@@ -144,20 +154,20 @@ window#waybar {
 
 #tray>.needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #f38ba8;
-    color: #1e1e2e;
+    background-color: @alert-red;
+    color: @bg-dark;
     border-radius: 0.625rem;
 }
 
 /* --- BATTERY STATES --- */
 #battery.charging,
 #battery.plugged {
-    color: #a6e3a1;
+    color: @success-green;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f38ba8;
-    color: #1e1e2e;
+    background-color: @alert-red;
+    color: @bg-dark;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -169,20 +179,20 @@ window#waybar {
 #custom-notification {
     font-family: "JetBrainsMono Nerd Font";
     font-size: 1rem;
-    color: #d4d4d4;
+    color: @text-dim;
     transition: all 0.3s ease;
 }
 
 /* DND Ativado */
 #custom-notification.inhibited {
-    color: #666666;
+    color: @text-dark;
 }
 
 /* Novas Notificações */
 #custom-notification.notification {
-    color: #ffffff;
-    text-shadow: 0 0 0.313rem rgba(255, 255, 255, 0.6),
-        0 0 0.625rem rgba(255, 255, 255, 0.3);
+    color: @text-white;
+    text-shadow: 0 0 0.313rem @white-op-60,
+        0 0 0.625rem @white-op-30;
     animation-name: blink-notification;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
@@ -196,18 +206,18 @@ window#waybar {
 @keyframes blink-notification {
     0% {
         opacity: 0.7;
-        text-shadow: 0 0 0.125rem rgba(255, 255, 255, 0.3);
+        text-shadow: 0 0 0.125rem @white-op-30;
     }
 
     100% {
         opacity: 1;
-        text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.8);
+        text-shadow: 0 0 0.5rem @white-op-80;
     }
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: @text-white;
+        color: @text-black;
     }
 }
