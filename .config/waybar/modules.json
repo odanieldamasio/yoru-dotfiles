@@ -36,13 +36,13 @@
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
-        "format-muted": " Muted",
+        "format-muted": " Muted",
         "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "",
+            "headset": "󰋎 ",
             "phone": "",
             "portable": "",
             "car": "",
@@ -52,7 +52,7 @@
     },
 
     "network": {
-        "format-wifi": "   {essid}",
+        "format-wifi": "  {essid}",
         "format-ethernet": "󰈀 {ipaddr}",
         "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "{ifname} (No IP)",
@@ -61,12 +61,12 @@
     },
 
     "cpu": {
-        "format": "  {usage}%",
+        "format": " {usage}%",
         "tooltip": true
     },
 
     "memory": {
-        "format": "  {}%",
+        "format": " {}%",
         "tooltip": true
     },
 
@@ -91,9 +91,9 @@
         },
         "format": "{icon}  {capacity}%",
         "format-full": "{icon}  {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-alt": "{time}  {icon}",
+        "format-charging": "󱐋 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
     },
     "battery#bat2": {

@@ -1,5 +1,12 @@
+/* ==============================================================================
+ * WAYBAR CONFIGURATION - THEME: REFINED NOIR
+ * Font: JetBrainsMono Nerd Font
+ * ============================================================================== */
+
+/* -----------------------------------------------------
+ * 1. GLOBAL & WINDOW
+ * ----------------------------------------------------- */
 * {
-    /* Fontes unificadas para evitar conflitos */
     font-family: "JetBrainsMono Nerd Font", "Noto Sans Nerd Font", "FontAwesome", sans-serif;
     font-size: .975rem;
     font-weight: bold;
@@ -12,16 +19,20 @@ window#waybar {
     transition: background-color .5s;
 }
 
-/* --- ILHAS DOS MÓDULOS --- */
+/* -----------------------------------------------------
+ * 2. LAYOUT & CONTAINERS (Islands)
+ * ----------------------------------------------------- */
 .modules-left,
 .modules-center,
 .modules-right {
     background: rgba(0, 0, 8, .7);
-    margin: 5px 10px;
-    padding: 0 5px;
-    border-radius: 8px;
+    /* 5px 10px 6px 10px -> 0.313rem 0.625rem 0.375rem 0.625rem */
+    margin: 0.313rem 0.625rem 0.375rem 0.625rem;
+    /* 0 5px -> 0 0.313rem */
+    padding: 0 0.313rem;
+    /* 8px -> 0.5rem */
+    border-radius: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Borda muito sutil para definição */
 }
 
 .modules-left {
@@ -29,30 +40,13 @@ window#waybar {
 }
 
 .modules-center {
-    padding: 0 10px;
+    padding: 0 0.625rem;
 }
 
-/* --- ESTILO ESPECÍFICO DO TRAY (Melhorado) --- */
-/* #tray {
-    padding: 0 15px;
-    margin: 5px 5px;
-} */
-
-/* Ícones individuais */
-#tray>.passive {
-    -gtk-icon-effect: dim;
-    /* Ícones inativos ficam meio transparentes */
-}
-
-#tray>.needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #f38ba8;
-    /* Vermelho se alguém te chamar */
-    color: #1e1e2e;
-    border-radius: 10px;
-}
-
-/* --- MÓDULOS GERAIS (Sem o Tray na lista) --- */
+/* -----------------------------------------------------
+ * 3. GENERIC MODULE STYLES
+ * ----------------------------------------------------- */
+/* Estilos compartilhados para a maioria dos módulos */
 #clock,
 #battery,
 #cpu,
@@ -72,12 +66,12 @@ window#waybar {
 #custom-notification,
 #tray,
 #mpd {
-    padding: 0 10px;
-    border-radius: 8px;
+    padding: 0 0.625rem;
+    border-radius: 0.5rem;
     color: #e1e1e1;
 }
 
-/* Hover nos módulos gerais */
+/* Efeito Hover compartilhado */
 #clock:hover,
 #battery:hover,
 #cpu:hover,
@@ -100,24 +94,41 @@ window#waybar {
     color: #ffffff;
 }
 
-/* --- WORKSPACES --- */
+/* -----------------------------------------------------
+ * 4. SPECIFIC MODULES configuration
+ * ----------------------------------------------------- */
+
+/* --- ARCH ICON --- */
+#custom-arch {
+    margin-left: 0.313rem;
+    padding: 0 0.625rem;
+    font-size: 1.25rem;
+    color: #e1e1e1;
+    transition: color .5s;
+}
+
+#custom-arch:hover {
+    color: #ffffff;
+    text-shadow: 0 0 0.313rem #1793d1;
+}
+
+/* --- WORKSPACES (Standard Style) --- */
 #workspaces button {
     background: transparent;
     font-weight: 900;
     font-size: 13pt;
+    /* aprox 1.08rem */
     color: #808080;
-    /* Cinza para inativo */
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     transition: all 0.3s;
 }
 
 #workspaces button.active {
     background: #333333;
-    /* Fundo cinza escuro para ativo */
     color: #ffffff;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
 }
 
 #workspaces button:hover {
@@ -126,26 +137,22 @@ window#waybar {
     box-shadow: none;
 }
 
-/* --- ÍCONE ARCH --- */
-#custom-arch {
-    margin-left: 5px;
-    padding: 0 10px;
-    font-size: 20px;
-    /* Reduzi um pouco para alinhar melhor */
-    color: #e1e1e1;
-    transition: color .5s;
+/* --- TRAY --- */
+#tray>.passive {
+    -gtk-icon-effect: dim;
 }
 
-#custom-arch:hover {
-    color: #ffffff;
-    text-shadow: 0 0 5px #1793d1;
+#tray>.needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f38ba8;
+    color: #1e1e2e;
+    border-radius: 0.625rem;
 }
 
-/* --- ESTADOS DA BATERIA --- */
+/* --- BATTERY STATES --- */
 #battery.charging,
 #battery.plugged {
     color: #a6e3a1;
-    /* Verde */
 }
 
 #battery.critical:not(.charging) {
@@ -157,43 +164,44 @@ window#waybar {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-/* --- ESTILO ESPECÍFICO DO CUSTOM NOTIFICATION (Tema Noir) --- */
+
+/* --- NOTIFICATIONS (Theme Noir) --- */
 #custom-notification {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 16px; /* Espaço para não colar na borda da tela */
-    color: #d4d4d4;     /* Cor padrão (Foreground da sua paleta) */
+    font-size: 1rem;
+    color: #d4d4d4;
     transition: all 0.3s ease;
 }
 
-/* Estado: Não Perturbe (DND) ativado */
+/* DND Ativado */
 #custom-notification.inhibited {
-    color: #666666; /* Seu 'Bright Black' refinado - Fica bem discreto */
+    color: #666666;
 }
 
-/* Estado: Novas Notificações (Piscando) */
+/* Novas Notificações */
 #custom-notification.notification {
-    color: #ffffff; /* Branco Puro */
-    
-    /* Glow branco suave para chamar atenção sem usar cores */
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 
-                 0 0 10px rgba(255, 255, 255, 0.3);
-                 
+    color: #ffffff;
+    text-shadow: 0 0 0.313rem rgba(255, 255, 255, 0.6),
+        0 0 0.625rem rgba(255, 255, 255, 0.3);
     animation-name: blink-notification;
-    animation-duration: 2s; /* Piscar mais lento e elegante */
+    animation-duration: 2s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
-/* Animação suave de "respiração" em vez de piscar seco */
+/* -----------------------------------------------------
+ * 5. ANIMATIONS
+ * ----------------------------------------------------- */
 @keyframes blink-notification {
     0% {
         opacity: 0.7;
-        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+        text-shadow: 0 0 0.125rem rgba(255, 255, 255, 0.3);
     }
+
     100% {
         opacity: 1;
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.8);
     }
 }
 
