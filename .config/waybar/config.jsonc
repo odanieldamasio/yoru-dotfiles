@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "height": 38,
-    "spacing": 4,
+    "spacing": 8,
     "modules-left": [
         "custom/arch",
         "hyprland/workspaces",

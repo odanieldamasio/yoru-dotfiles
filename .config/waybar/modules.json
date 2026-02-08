@@ -148,5 +148,11 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
         "locale": "pt_BR.UTF-8",
         "timezone": "America/Sao_Paulo"
-    }
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "wlogout" 
+        // Explicação: layer-shell previne borrões estranhos, -b é a margem
+    },
 }

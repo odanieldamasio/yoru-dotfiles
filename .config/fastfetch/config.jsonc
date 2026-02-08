@@ -1,0 +1,77 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    // "source": "arch", // Força o logo do Arch mesmo se mudar a distro
+    "source": "~/.config/fastfetch/default.txt",
+    "padding": {
+      "top": 2,
+      "left": 2,
+      "right": 2
+    }
+  },
+  "display": {
+    "separator": "  ➜  ",
+    "color": {
+      "keys": "blue" // Cor dos títulos (OS, Host, etc)
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    {
+      "type": "os",
+      "key": "OS      ",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "host",
+      "key": "Machine ",
+      "keyColor": "green"
+    },
+    {
+      "type": "kernel",
+      "key": "Kernel  ",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "uptime",
+      "key": "Uptime  ",
+      "keyColor": "red"
+    },
+    {
+      "type": "packages",
+      "key": "Pkgs    ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "wm",
+      "key": "WM      ",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "terminal",
+      "key": "Term    ",
+      "keyColor": "yellow"
+    },
+    "break", // Pula uma linha
+    {
+      "type": "cpu",
+      "key": "CPU     ",
+      "keyColor": "green"
+    },
+    {
+      "type": "gpu",
+      "key": "GPU     ",
+      "format": "{2}", // Tenta forçar mostrar apenas o nome da GPU dedicada
+      "keyColor": "magenta"
+    },
+    {
+      "type": "memory",
+      "key": "RAM     ",
+      "keyColor": "red"
+    },
+    "break",
+    "colors" // Mostra as bolinhas coloridas no final
+  ]
+}
