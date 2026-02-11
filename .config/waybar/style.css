@@ -12,14 +12,14 @@
 * {
     font-family: "JetBrainsMono Nerd Font", "Noto Sans Nerd Font", "FontAwesome", sans-serif;
     font-size: .975rem;
-    font-weight: bold;
+    font-weight: bold; 
     transition: background-color .3s ease-out;
 }
 
 window#waybar {
     background: @bg-window;
     color: @text-main;
-    transition: background-color .5s;
+    transition: background-color .5s;  
 }
 
 /* -----------------------------------------------------
@@ -134,8 +134,9 @@ window#waybar {
 #workspaces button.active {
     background: @bg-active;
     color: @text-white;
-    padding-left: 0.625rem;
-    padding-right: 0.625rem;
+     border-radius: 0;
+    /* padding-left: 0.625rem;
+    padding-right: 0.625rem; */
 }
 
 #workspaces button:hover {
@@ -147,6 +148,12 @@ window#waybar {
 } 
 
 /* --- TRAY --- */
+#tray {
+    padding: 0 10px;
+    margin: 0 5px;
+    /* Se o tray estiver vazio, isso ajuda a não mostrar um bloco fantasma */
+}
+
 #tray>.passive {
     -gtk-icon-effect: dim;
 }
@@ -155,7 +162,6 @@ window#waybar {
     -gtk-icon-effect: highlight;
     background-color: @alert-red;
     color: @bg-dark;
-    /* border-radius: 0.625rem; */
 }
 
 /* --- BATTERY STATES --- */

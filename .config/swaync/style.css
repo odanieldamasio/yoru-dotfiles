@@ -1,244 +1,208 @@
-@define-color cc-bg #1e1e2e;              /* base */
-@define-color noti-bg #181825;           /* mantle */
-@define-color noti-bg-darker #11111b;    /* crust */
-@define-color noti-bg-hover #1e1e2e;     /* base */
-@define-color noti-bg-focus #181825;     /* mantle */
-@define-color noti-border-color #313244; /* surface0 */
-@define-color noti-close-bg #f38ba8;
-@define-color noti-close-bg-hover #eba0ac;
-@define-color text-color #cdd6f4;        /* text */
-@define-color text-color-disabled #6c7086; /* overlay0 */
-@define-color bg-selected #89b4fa;
-@define-color border-accent #b4befe;     /* lavender (arch kutusu rengi) */
-@define-color red-base #f38ba8;
-@define-color red-hover #eba0ac;
-@define-color green-base #a6e3a1;
-@define-color blue-base #89b4fa;
+/* --- PALETA REFINED NOIR (Injetada) --- */
+
+/* (BACKGROUNDS) */
+@define-color bg-window rgba(17, 17, 17, 1);  /* Aumentei levemente para 0.45 para leitura */
+@define-color bg-modules rgba(10, 10, 15, 0.75); /* Fundo das notificações */
+@define-color bg-hover rgba(255, 255, 255, 0.1); /* Hover sutil */
+@define-color bg-active #333333;
+@define-color bg-dark #1e1e2e;
+
+/* (BORDERS) */
+@define-color border-color rgba(255, 255, 255, 0.1); /* Borda muito fina e sutil */
+
+/* (FOREGROUNDS) */
+@define-color text-main #e1e1e1;
+@define-color text-white #ffffff;
+@define-color text-dim #d4d4d4;
+@define-color text-muted #808080;
+
+/* (ACCENTS) */
+@define-color accent @arch-blue; /* Usando o azul do Arch como destaque principal */
+@define-color arch-blue #1793d1;
+@define-color success-green #a6e3a1;
+@define-color alert-red #f38ba8;
+
+/* --- FIM DA PALETA --- */
 
 * {
   font-family: "JetBrainsMono NFM SemiBold", monospace;
-  border-radius: 8px;
+  font-weight: bold; 
 }
 
+/* O Painel de Controle Principal (Fundo Geral) */
 .control-center {
-  background: @noti-bg;
-  border: 2px solid @border-accent;
-  border-radius: 8px;
+  background: @bg-window;          /* Transparência alta para o Blur funcionar */
+  border: 1px solid @border-color; /* Borda quase invisível */
+  border-radius: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6); /* Sombra forte para destacar do wallpaper */
+  padding: 8px;
 }
 
-.control-center .notification-row:focus,
-.control-center .notification-row:hover {
-  opacity: 1;
-  background: @noti-bg-hover;
-  border-radius: 8px;
-}
-
-.notification-row {
-  outline: none;
-  margin: 0;
+/* A Notificação Individual */
+.notification {
+  background: @bg-modules;         /* Mais escuro para ler o texto */
+  border: 1px solid @border-color;
+  border-radius: none;
+  margin: 6px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
   padding: 0;
 }
 
-.notification,
-.notification-content,
-.notification-action,
-.notification-default-action,
-.inline-reply-entry,
-.inline-reply-button,
-.widget-title,
-.widget-title>button,
-.widget-dnd,
-.widget-dnd>switch,
-.widget-dnd>switch slider,
-.widget-label>label,
-.widget-buttons-grid,
-.widget-buttons-grid>flowbox>flowboxchild>button,
-.widget-volume,
-.widget-backlight,
-.widget-mpris,
-.widget-mpris>box>button,
-.widget-mpris-player,
-.widget-mpris-album-art {
-  border-radius: 8px;
+.notification:hover {
+  background: @bg-active;          /* Destaque ao passar o mouse */
+  border: 1px solid @accent;       /* Borda azul ao focar */
 }
 
-.notification {
-  background: @noti-bg-darker;
-  border: 2px solid @border-accent;
-  margin: 6px 0;
-}
-
-.close-button {
-  background: @red-base;
-  color: @cc-bg;
-  text-shadow: none;
-  padding: 4px;
-  margin-top: 5px;
-  margin-right: 5px;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-  border: none;
-}
-
-.notification:hover .close-button {
-  opacity: 1;
-}
-
-.close-button:hover {
-  background: @red-hover;
-  box-shadow: none;
-  transition: all 0.15s ease-in-out;
-}
-
-.notification-action {
-  border: 2px solid @border-accent;
-  border-top: none;
-}
-
-.notification-default-action:hover,
-.notification-action:hover {
-  color: @blue-base;
-  background: @cc-bg;
-}
-
-.inline-reply-entry {
-  background: @noti-bg-darker;
-  color: @text-color;
-  caret-color: @text-color;
-  border: 1px solid @noti-border-color;
-}
-
-.inline-reply-button {
-  margin-top: 4px;
-  margin-left: 4px;
-  background: @noti-bg;
-  border: 1px solid @noti-border-color;
-  color: @text-color;
-}
-
-.inline-reply-button:disabled {
-  background: transparent;
-  color: @text-color-disabled;
-  border: 1px solid transparent;
-}
-
-.inline-reply-button:hover {
-  background: @noti-bg-hover;
+/* Conteúdo da Notificação */
+.notification-content {
+  padding: 10px;
 }
 
 .summary {
-  font-size: 16px;
-  font-weight: 700;
-  background: transparent;
-  color: @blue-base;
+  font-size: 15px;
+  color: @text-white;
+  text-shadow: none;
+  margin-bottom: 4px;
+}
+
+.body {
+  font-size: 14px;
+  color: @text-dim;
   text-shadow: none;
 }
 
 .time {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 12px;
+  color: @text-muted;
+  margin-right: 12px;
+}
+
+/* Botão de Fechar (X) */
+.close-button {
   background: transparent;
-  color: @text-color;
+  color: @text-muted;
   text-shadow: none;
-  margin-right: 18px;
-}
-
-.body {
-  font-size: 15px;
-  font-weight: 400;
-  background: transparent;
-  color: @text-color;
-  text-shadow: none;
-}
-
-.widget-title {
-  color: @blue-base;
-  background: @noti-bg-darker;
-  padding: 8px 12px;
-  margin: 10px;
-  font-size: 1.5rem;
-}
-
-.widget-title>button {
-  font-size: 1rem;
-  color: @text-color;
-  background: @noti-bg;
+  padding: 0;
+  border-radius: none;
+  margin-top: 5px;
+  margin-right: 5px;
   box-shadow: none;
+  border: none;
+  min-width: 24px;
+  min-height: 24px;
 }
 
-.widget-title>button:hover {
-  background: @red-base;
-  color: @cc-bg;
+.close-button:hover {
+  background: @alert-red;
+  color: @bg-dark;
+  transition: all 0.2s ease-in-out;
 }
 
+/* Títulos dos Widgets (ex: "Não Perturbe") */
+.widget-title {
+  color: @accent;
+  background: @bg-modules;
+  padding: 5px 10px;
+  margin: 10px 10px 5px 10px;
+  font-size: 1.1rem;
+  border-radius: none;
+  border: 1px solid @border-color;
+}
+
+.widget-title > button {
+  font-size: 0.9rem;
+  color: @text-dim;
+  background: transparent;
+  border: 1px solid @border-color;
+  border-radius: none;
+  padding: 4px 12px;
+}
+
+.widget-title > button:hover {
+  background: @alert-red;
+  color: @bg-dark;
+  border-color: @alert-red;
+}
+
+/* Switch DND (Não Perturbe) */
 .widget-dnd {
-  background: @noti-bg-darker;
-  padding: 8px 12px;
-  margin: 5px 10px;
-  font-size: large;
-  color: @blue-base;
-}
-
-.widget-dnd>switch {
-  background: @blue-base;
-}
-
-.widget-dnd>switch:checked {
-  background: @red-base;
-  border: 1px solid @red-base;
-}
-
-.widget-label>label {
+  background: @bg-modules;
+  padding: 8px;
+  margin: 0 10px 10px 10px;
+  border-radius:none;
   font-size: 1rem;
-  color: @text-color;
-  margin: 10px;
+  color: @text-main;
+  border: 1px solid @border-color;
 }
 
+.widget-dnd > switch {
+  background: @bg-active;
+  border-radius: none;
+}
+
+.widget-dnd > switch:checked {
+  background: @accent;
+  border: 1px solid @accent;
+}
+
+/* Grade de Botões (Wifi, BT, etc) */
 .widget-buttons-grid {
-  font-size: x-large;
   padding: 5px;
   margin: 10px;
-  background: @noti-bg-darker;
+  background: transparent;
 }
 
-.widget-buttons-grid>flowbox>flowboxchild>button {
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: @bg-modules;
+  border-radius:none;
   margin: 3px;
-  background: @cc-bg;
-  color: @text-color;
-  transition: background-color 0.15s ease-in-out;
+  padding: 8px;
+  min-width: 50px; 
+  min-height: 50px;
+  color: @text-main;
+  border: 1px solid @border-color;
 }
 
-.widget-buttons-grid>flowbox>flowboxchild>button:hover {
-  background: @blue-base;
-  color: @cc-bg;
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @bg-hover;
+  border: 1px solid @accent;
 }
 
-.widget-buttons-grid>flowbox>flowboxchild>button:checked {
-  background: @green-base;
-  color: @cc-bg;
+/* Player de Música (MPRIS) */
+.widget-mpris {
+  background: @bg-modules;
+  padding: 8px;
+  margin: 10px;
+  border-radius: none;
+  color: @text-main;
+  border: 1px solid @border-color;
 }
 
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 1rem;
+  color: @accent;
+}
+
+.widget-mpris-subtitle {
+  font-size: 0.8rem;
+  color: @text-muted;
+}
+
+/* Controles Deslizantes (Volume/Brilho) */
 .widget-volume,
 .widget-backlight {
-  background: @noti-bg-darker;
-  padding: 5px;
+  background: @bg-modules;
+  padding: 10px;
   margin: 5px 10px;
-  font-size: 2rem;
-  color: @blue-base;
+  border-radius:none;
+  font-size: 1rem;
+  border: 1px solid @border-color;
+  color: @text-main;
 }
 
-.widget-mpris {
-  color: @text-color;
-  background: @noti-bg-darker;
-  padding: 5px 10px;
-  margin: 5px 10px;
-  box-shadow: none;
-}
-
-.widget-mpris>box>button,
-.widget-mpris-player,
-.widget-mpris-album-art {
-  box-shadow: none;
-  padding: 5px 10px;
-  margin: 10px 0 0 0;
+/* Ajuste da cor da barra de progresso do volume */
+trough highlight {
+  background: @accent;
+  border-radius: none;
 }

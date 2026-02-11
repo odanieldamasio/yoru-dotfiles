@@ -15,12 +15,10 @@
     ],
     "modules-right": [
         "pulseaudio",
-        // "network",
-        "battery",
-        "battery#bat2",
+        "network",
         "tray",
         "clock",
-        "custom/notification"
+        "battery"
     ],
     "include": [
         "~/.config/waybar/modules.json"
