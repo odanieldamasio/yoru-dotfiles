@@ -1,0 +1,142 @@
+// Rofi Configuration
+// Theme: Refined Noir (Monochrome/B&W Edition)
+
+* {
+    /* --- Definições da Paleta Refined Noir (Apenas Grayscale) --- */
+    p-bg-darker:    #11111b;  /* Fundo principal mais escuro */
+    p-bg-dark:      #1e1e2e;  /* Fundo secundário */
+    p-bg-active:    #333333;  /* Fundo alternativo */
+    p-text-white:   #ffffff;  /* Destaque máximo (Branco puro) */
+    p-text-main:    #e1e1e1;  /* Texto principal (Off-white) */
+    p-text-dim:     #d4d4d4;  /* Texto secundário */
+    p-border:       #ffffff;  /* Borda branca para alto contraste noir */
+
+    /* --- Mapeamento de Variáveis para B&W --- */
+    
+    /* Fundo principal: Usando o mais escuro da paleta */
+    bg-col:         @p-bg-darker; 
+    
+    /* Fundo de áreas de entrada: Um tom ligeiramente mais claro */
+    bg-col-light:   @p-bg-dark;
+    
+    /* Cor da borda: Branco para contraste máximo */
+    border-col:     @p-text-white;
+    
+    /* Fundo do item selecionado: Invertendo para branco para efeito "holofote" */
+    selected-col:   @p-text-white;
+    
+    /* Cor de destaque (antigo roxo): Substituído por branco */
+    purple:         @p-text-white;
+    
+    /* Cor do texto padrão */
+    fg-col:         @p-text-main;
+    
+    /* Cor do texto selecionado: Preto (para ler sobre o fundo branco de seleção) */
+    fg-col2:        @p-bg-darker;
+    
+    width: 600px;
+}
+
+window {
+    transparency: "real";
+    background-color: @bg-col;
+    border: 2px;
+    border-color: @border-col;
+    border-radius: 15px;
+}
+
+mainbox {
+    background-color: transparent;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 2px;
+    margin: 0px 5px 0px 0px;
+}
+
+prompt {
+    /* O prompt agora é uma caixa branca */
+    background-color: @purple;
+    padding: 10px;
+    /* O texto dentro do prompt deve ser preto */
+    text-color: @bg-col;
+    border-radius: 10px;
+    margin: 5px 0px 0px 5px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 10px;
+    margin: 5px 0px 0px 5px;
+    text-color: @fg-col;
+    background-color: @bg-col-light;
+    border-radius: 10px;
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+    margin: 10px 5px 5px 5px;
+    columns: 1;
+    lines: 8;
+    background-color: transparent;
+}
+
+element {
+    padding: 8px;
+    background-color: transparent;
+    border-radius: 10px;
+    text-color: @fg-col;
+}
+
+element-icon {
+    size: 32px;
+    padding: 0px 10px 0px 0px;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: @fg-col;
+    vertical-align: 0.5;
+}
+
+/* Quando um elemento é selecionado */
+element selected {
+    /* Fundo fica branco */
+    background-color: @selected-col;
+    /* Texto fica preto */
+    text-color: @fg-col2;
+}
+
+element-text selected {
+    text-color: @fg-col2;
+}
+
+element-icon selected {
+    background-color: transparent;
+}
+
+mode-switcher {
+    spacing: 0;
+}
+
+button {
+    padding: 10px;
+    background-color: @bg-col-light;
+    text-color: @fg-col;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+button selected {
+    background-color: @bg-col;
+    text-color: @fg-col2;
+}

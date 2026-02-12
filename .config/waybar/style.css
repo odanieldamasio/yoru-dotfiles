@@ -65,6 +65,7 @@ window#waybar {
 #custom-notification,
 #custom-arch,
 #tray,
+#bluetooth,
 #window,
 #mpd {
     padding: 0 0.625rem;
@@ -88,6 +89,7 @@ window#waybar {
 #custom-media:hover,
 #custom-notification:hover,
 #mode:hover,
+#bluetooth:hover,
 #idle_inhibitor:hover,
 #scratchpad:hover,
 #power-profiles-daemon:hover,

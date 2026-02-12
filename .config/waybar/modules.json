@@ -95,16 +95,18 @@
         }
     },
     "bluetooth": {
-        "format": "",
+        "format": " {icon}",
         "format-off": "󰂲",
         "format-disabled": "󰂲",
         "format-connected": "󰂱",
         "format-no-controller": "",
         "tooltip-format": "Devices connected: {num_connections}",
-        "on-click": "omarchy-launch-bluetooth"
+        //open bluethuith manager on click
+        "interval": 10,
+        "on-click": "$TERMINAL --class bluetuith -e bluetuith"
     },
     "tray": {
-        "icon-size": 18,
+        "icon-size": 16,
         "spacing": 10
     },
     "clock": {
