@@ -112,7 +112,7 @@ element-text {
 element selected {
     /* Fundo fica branco */
     background-color: @selected-col;
-    /* Texto fica preto */
+    /* Texto fi ca preto */
     text-color: @fg-col2;
 }
 
