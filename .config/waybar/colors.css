@@ -4,7 +4,7 @@
 
 /* --- (BACKGROUNDS) --- */
 @define-color bg-window rgba(17, 17, 17, 0.35);
-@define-color bg-modules rgba(0, 0, 8, 0.7);
+@define-color bg-modules rgba(0, 0, 8, 0.75);
 @define-color bg-hover rgba(255, 255, 255, 0.5);
 @define-color bg-active #333333;
 @define-color bg-dark #1e1e2e;

@@ -1,0 +1,59 @@
+# --- Configurações Gerais (Layout) ---
+sort=-time
+layer=overlay
+width=350
+height=150
+border-size=2
+border-radius=8
+icons=1
+max-icon-size=48
+font=JetBrainsMono Nerd Font 10
+margin=10
+padding=15
+default-timeout=0
+ignore-timeout=1
+
+# --- CORES BASEADAS NA PALETA "REFINED NOIR" ---
+
+# Fundo: Usei 'bg-darker' (#11111b) para garantir legibilidade
+# Se quiser transparência igual ao 'bg-window', use: #11111159
+background-color=#11111b
+
+# Texto: Usei 'text-main' (#e1e1e1)
+text-color=#e1e1e1
+
+# Borda: Usei 'bg-active' (#333333) 
+# (A 'border-color' da paleta é 0.05 de opacidade, ficaria invisível no mako)
+border-color=#333333
+
+# Barra de Progresso (Timer): Usei 'text-dim' (#d4d4d4) sobre o fundo
+progress-color=over #d4d4d4
+
+# --- ESTILOS POR URGÊNCIA ---
+
+# Baixa Urgência (Low)
+# Texto fica 'text-muted' (#808080) para chamar menos atenção
+[urgency=low]
+background-color=#11111b
+text-color=#808080
+border-color=#333333
+
+# Normal
+[urgency=normal]
+background-color=#11111b
+text-color=#e1e1e1
+border-color=#333333
+
+# Crítica (Critical) - INVERTIDO para alto contraste
+# Fundo vira 'text-white' (#ffffff) e texto vira 'bg-darker' (#11111b)
+# Borda vira 'text-black' (#000000)
+[urgency=critical]
+background-color=#ffffff
+text-color=#11111b
+border-color=#000000
+default-timeout=0
+ignore-timeout=1
+
+# --- AGRUPAMENTO ---
+[grouped]
+format=<b>%s</b>\n%b\n(%g)

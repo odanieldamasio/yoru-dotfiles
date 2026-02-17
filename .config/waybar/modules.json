@@ -3,7 +3,7 @@
         "format": "󰣇",
         "tooltip": true,
         "on-click-right": "$TERMINAL",
-        "tooltip-format": "I use Arch\n\nSuper + Alt + Space",
+        "tooltip-format": "I use Arch, btw\n\nSuper + Alt + Space",
         "on-click": "sh ~/.config/hypr/scripts/wofi-toggle.sh" 
     },
     "hyprland/workspaces": {
@@ -33,7 +33,7 @@
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth": "{icon}  {volume}%",
         "tooltip-format": "Playing at {volume}%",
         "format-muted": " Muted",
         "format-source": " {volume}%",
@@ -44,7 +44,7 @@
             "default": ["", "", ""]
         },
         "scroll-step": 5,
-        "on-click": "$TERMINAL --class pulsemixer -e pulsemixer"
+        "on-click": "$TERMINAL --class wiremix -e wiremix"
     },
     "network": {
         "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
@@ -62,18 +62,18 @@
         "interval": 5,
         "format": "  {usage}%",
         "on-click-right": "$TERMINAL --class btop -e btop",
-        "tooltip": true
+        // "tooltip": false
     },
     "memory": {
         "format": "  {}%",
-        "interval": 10,
-        "tooltip": true
+        "interval": 10
     },
     "temperature": {
         "interval": 10,
         "critical-threshold": 80,
         "format-critical": "{temperatureC}°C",
-        "format": " {temperatureC}°C"
+        "format": " {temperatureC}°C",
+        "tooltip": false
     },
     "battery": {
         "states": {
@@ -101,7 +101,6 @@
         "format-connected": "󰂱",
         "format-no-controller": "",
         "tooltip-format": "Devices connected: {num_connections}",
-        //open bluethuith manager on click
         "interval": 10,
         "on-click": "$TERMINAL --class bluetuith -e bluetuith"
     },
@@ -112,6 +111,6 @@
     "clock": {
         "format": "{:L%d de %b, %H:%M}",
         "tooltip-format": "{:L%A %d %B %Y}",
-        "tooltip": true
+        "tooltip": false
     }
 }
