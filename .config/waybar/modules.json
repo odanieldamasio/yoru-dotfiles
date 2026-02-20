@@ -112,5 +112,16 @@
         "format": "{:L%d de %b, %H:%M}",
         "tooltip-format": "{:L%A %d %B %Y}",
         "tooltip": false
+    },
+   "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "󱐋",
+            "performance": "󱐋",
+            "balanced": "",
+            "power-saver": "󰌪"
+        }
     }
 }

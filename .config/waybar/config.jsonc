@@ -14,11 +14,12 @@
         "hyprland/window"
     ],
     "modules-right": [
-        "pulseaudio",
-        "network",
         "tray",
         "clock",
-        "battery"
+        "pulseaudio",
+        "battery",
+        "network",
+        "power-profiles-daemon"
     ],
     "include": [
         "~/.config/waybar/modules.json"
