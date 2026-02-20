@@ -1,0 +1,32 @@
+/* * 
+ * Paleta extraída do tema "Refined Noir"
+ */
+
+/* --- (BACKGROUNDS) --- */
+@define-color bg-window rgba(17, 17, 17, 0.35);
+@define-color bg-modules rgba(0, 0, 8, 0.75);
+@define-color bg-hover rgba(255, 255, 255, 0.5);
+@define-color bg-active #333333;
+@define-color bg-dark #1e1e2e;
+@define-color bg-darker #11111b;
+
+/* --- BORDERS --- */
+@define-color border-color rgba(255, 255, 255, 0.05);
+
+/* --- FOREGROUNDS --- */
+@define-color text-main #e1e1e1;
+@define-color text-white #ffffff;
+@define-color text-dim #d4d4d4;
+@define-color text-muted #808080;
+@define-color text-dark #666666;
+@define-color text-black #000000;
+
+/* --- ACCENTS --- */
+@define-color arch-blue #1793d1;
+@define-color success-green #a6e3a1;
+@define-color alert-red #f38ba8;
+
+/* --- SHADOWS AND EFFECTS --- */
+@define-color white-op-80 rgba(255, 255, 255, 0.8);
+@define-color white-op-60 rgba(255, 255, 255, 0.6);
+@define-color white-op-30 rgba(255, 255, 255, 0.3);
