@@ -11,15 +11,15 @@
         "temperature"
     ],
     "modules-center": [
-        "hyprland/window"
+        // "hyprland/window"
+        "clock"
     ],
     "modules-right": [
         "tray",
-        "clock",
         "pulseaudio",
-        "battery",
         "network",
-        "power-profiles-daemon"
+        "power-profiles-daemon",
+        "battery"
     ],
     "include": [
         "~/.config/waybar/modules.json"
